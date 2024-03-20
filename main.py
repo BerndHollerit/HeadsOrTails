@@ -17,10 +17,7 @@ def heads_or_tails():
     return random.choice(options)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
+def calculate_scores():
     heads_or_tails_array = array.array('u', [' '] * 100)
     alice_score = 0
     bob_score = 0
@@ -38,5 +35,10 @@ if __name__ == '__main__':
 
     print("Alice Score: {}".format(alice_score))
     print("Bob Score: {}".format(bob_score))
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    calculate_scores()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
