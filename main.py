@@ -10,7 +10,7 @@ def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print("Hi, {0}".format(name))  # Press Ctrl+F8 to toggle the breakpoint.
 
-#randomly returns Heads or Tails
+# Randomly returns Heads or Tails
 def heads_or_tails():
     options = ['H', 'T']
     return random.choice(options)
