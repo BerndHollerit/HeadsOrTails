@@ -5,11 +5,6 @@ import array
 import random
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print("Hi, {0}".format(name))  # Press Ctrl+F8 to toggle the breakpoint.
-
-
 # Randomly returns Heads or Tails
 def heads_or_tails():
     options = ['H', 'T']
@@ -58,8 +53,5 @@ def run_simulation():
     print("Expected Value Bob: {}".format(expected_value_bob))
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     run_simulation()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
