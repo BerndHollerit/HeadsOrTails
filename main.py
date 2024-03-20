@@ -6,29 +6,29 @@ import array
 import random
 
 
-# Randomly returns Heads or Tails
+# Randomly returns Heads (H) or Tails (T)
 def heads_or_tails():
     options = ['H', 'T']
     return random.choice(options)
 
 
-def calculate_scores():
-    heads_or_tails_array = array.array('u', [' '] * 100)
-    alice_score = 0
-    bob_score = 0
+def calculate_points():
+    coin_toss_sequence = array.array('u', [' '] * 100)
+    alice_points = 0
+    bob_points = 0
 
-    # Perform the first coin toss
-    heads_or_tails_array[0] = heads_or_tails()
+    # Perform the first coin toss. This one does not need a check for the sequence
+    coin_toss_sequence[0] = heads_or_tails()
 
-    for i in range(100):
-        heads_or_tails_array[i] = heads_or_tails()
+    for i in range(1, 100):
+        coin_toss_sequence[i] = heads_or_tails()
 
-        if heads_or_tails_array[i] == 'H' and heads_or_tails_array[i - 1] == 'H':
-            alice_score += 1
-        elif heads_or_tails_array[i] == 'T' and heads_or_tails_array[i - 1] == 'H':
-            bob_score += 1
+        if coin_toss_sequence[i] == 'H' and coin_toss_sequence[i - 1] == 'H':
+            alice_points += 1
+        elif coin_toss_sequence[i] == 'T' and coin_toss_sequence[i - 1] == 'H':
+            bob_points += 1
 
-    return alice_score, bob_score
+    return alice_points, bob_points
 
 
 def run_simulation():
@@ -38,10 +38,10 @@ def run_simulation():
     draws = 0
 
     for i in range(number_of_simulations):
-        alice_score, bob_score = calculate_scores()
-        if alice_score > bob_score:
+        alice_points, bob_points = calculate_points()
+        if alice_points > bob_points:
             alice_wins += 1
-        elif bob_score > alice_score:
+        elif bob_points > alice_points:
             bob_wins += 1
         else:
             draws += 1
