@@ -33,12 +33,34 @@ def calculate_scores():
         elif heads_or_tails_array[i] == 'T' and heads_or_tails_array[i - 1] == 'H':
             bob_score += 1
 
-    print("Alice Score: {}".format(alice_score))
-    print("Bob Score: {}".format(bob_score))
+    # print("Alice Score: {}".format(alice_score))
+    # print("Bob Score: {}".format(bob_score))
+    return alice_score, bob_score
+
+
+def run_simulation():
+    number_of_simulations = 10000
+
+    alice_scores = array.array('i', [0] * number_of_simulations)
+    bob_scores = array.array('i', [0] * number_of_simulations)
+
+    for i in range(number_of_simulations):
+        alice_score, bob_score = calculate_scores()
+        alice_scores[i] = alice_score
+        bob_scores[i] = bob_score
+
+    alice_sum = sum(alice_scores)
+    bob_sum = sum(bob_scores)
+
+    expected_value_alice = alice_sum / number_of_simulations
+    expected_value_bob = bob_sum / number_of_simulations
+
+    print("Expected Value Alice: {}".format(expected_value_alice))
+    print("Expected Value Bob: {}".format(expected_value_bob))
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    calculate_scores()
+    run_simulation()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
