@@ -28,8 +28,6 @@ def calculate_scores():
         elif heads_or_tails_array[i] == 'T' and heads_or_tails_array[i - 1] == 'H':
             bob_score += 1
 
-    # print("Alice Score: {}".format(alice_score))
-    # print("Bob Score: {}".format(bob_score))
     return alice_score, bob_score
 
 
@@ -49,8 +47,8 @@ def run_simulation():
     expected_value_alice = alice_sum / number_of_simulations
     expected_value_bob = bob_sum / number_of_simulations
 
-    print("Expected Value Alice: {}".format(expected_value_alice))
-    print("Expected Value Bob: {}".format(expected_value_bob))
+    print(f"Expected Value Alice: {expected_value_alice}")
+    print(f"Expected Value Bob: {expected_value_bob}")
 
 
 if __name__ == '__main__':
