@@ -28,16 +28,11 @@ def calculate_scores():
         elif heads_or_tails_array[i] == 'T' and heads_or_tails_array[i - 1] == 'H':
             bob_score += 1
 
-    # print(f"heads_or_tails_array: {heads_or_tails_array}")
-    # print(f"Score Alice: {alice_score}")
-    # print(f"Score Bob: {bob_score}")
     return alice_score, bob_score
 
 
 def run_simulation():
     number_of_simulations = 100000
-    alice_scores = array.array('i', [0] * number_of_simulations)
-    bob_scores = array.array('i', [0] * number_of_simulations)
     alice_wins = 0
     bob_wins = 0
     draws = 0
@@ -50,21 +45,7 @@ def run_simulation():
             bob_wins += 1
         else:
             draws += 1
-        alice_scores[i] = alice_score
-        bob_scores[i] = bob_score
 
-    alice_sum = sum(alice_scores)
-    bob_sum = sum(bob_scores)
-
-    expected_value_alice = alice_sum / number_of_simulations
-    expected_value_bob = bob_sum / number_of_simulations
-
-    # print(f"Scores Alice: {alice_scores}")
-    # print(f"Scores Bob: {bob_scores}")
-    # print(f"Sum Alice: {alice_sum}")
-    # print(f"Sum Bob: {bob_sum}")
-    # print(f"Expected Value Alice: {expected_value_alice}")
-    # print(f"Expected Value Bob: {expected_value_bob}")
     print(f"Simulations: {number_of_simulations}")
     print(f"Alice Wins :  {alice_wins}")
     print(f"Bob Wins   :  {bob_wins}")
