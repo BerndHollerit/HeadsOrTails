@@ -20,7 +20,7 @@ def calculate_scores():
     # Perform the first coin toss
     heads_or_tails_array[0] = heads_or_tails()
 
-    for i in range(1, 100):
+    for i in range(100):
         heads_or_tails_array[i] = heads_or_tails()
 
         if heads_or_tails_array[i] == 'H' and heads_or_tails_array[i - 1] == 'H':
@@ -28,16 +28,28 @@ def calculate_scores():
         elif heads_or_tails_array[i] == 'T' and heads_or_tails_array[i - 1] == 'H':
             bob_score += 1
 
+    # print(f"heads_or_tails_array: {heads_or_tails_array}")
+    # print(f"Score Alice: {alice_score}")
+    # print(f"Score Bob: {bob_score}")
     return alice_score, bob_score
 
 
 def run_simulation():
-    number_of_simulations = 10000
+    number_of_simulations = 100000
     alice_scores = array.array('i', [0] * number_of_simulations)
     bob_scores = array.array('i', [0] * number_of_simulations)
+    alice_wins = 0
+    bob_wins = 0
+    draws = 0
 
     for i in range(number_of_simulations):
         alice_score, bob_score = calculate_scores()
+        if alice_score > bob_score:
+            alice_wins += 1
+        elif bob_score > alice_score:
+            bob_wins += 1
+        else:
+            draws += 1
         alice_scores[i] = alice_score
         bob_scores[i] = bob_score
 
@@ -47,8 +59,16 @@ def run_simulation():
     expected_value_alice = alice_sum / number_of_simulations
     expected_value_bob = bob_sum / number_of_simulations
 
-    print(f"Expected Value Alice: {expected_value_alice}")
-    print(f"Expected Value Bob: {expected_value_bob}")
+    # print(f"Scores Alice: {alice_scores}")
+    # print(f"Scores Bob: {bob_scores}")
+    # print(f"Sum Alice: {alice_sum}")
+    # print(f"Sum Bob: {bob_sum}")
+    # print(f"Expected Value Alice: {expected_value_alice}")
+    # print(f"Expected Value Bob: {expected_value_bob}")
+    print(f"Simulations: {number_of_simulations}")
+    print(f"Alice Wins :  {alice_wins}")
+    print(f"Bob Wins   :  {bob_wins}")
+    print(f"Draws      :   {draws}")
 
 
 if __name__ == '__main__':
