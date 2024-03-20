@@ -2,7 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
+import array
 import random
 
 
@@ -20,7 +20,8 @@ def heads_or_tails():
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-    heads_or_tails_list = [''] * 100
+    heads_or_tails_array = array.array('u', [''] * 100)
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
