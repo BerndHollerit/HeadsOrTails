@@ -20,14 +20,12 @@ def heads_or_tails():
 if __name__ == '__main__':
     print_hi('PyCharm')
 
+    heads_or_tails_list = [''] * 100
+
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
 
-Var HeadsOrTails()
-If(rand()<0.5
-  Return “H”
-Else
-  Return “T”
+
 
 A[101]
 A[0] = 0
