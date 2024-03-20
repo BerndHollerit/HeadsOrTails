@@ -3,10 +3,17 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+import random
+
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print("Hi, {0}".format(name))  # Press Ctrl+F8 to toggle the breakpoint.
+
+#randomly returns Heads or Tails
+def heads_or_tails():
+    options = ['H', 'T']
+    return random.choice(options)
 
 
 # Press the green button in the gutter to run the script.
